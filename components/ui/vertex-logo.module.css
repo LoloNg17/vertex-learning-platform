@@ -1,0 +1,27 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #0b0b0b;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.logo svg {
+  width: 33px;
+  height: 33px;
+  flex: none;
+}
+
+.small {
+  gap: 5px;
+  font-size: 12px;
+  letter-spacing: -0.04em;
+}
+
+.small svg {
+  width: 19px;
+  height: 19px;
+}
