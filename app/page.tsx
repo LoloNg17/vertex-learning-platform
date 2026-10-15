@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Icon } from "../components/ui/icon";
 import { VertexLogo } from "../components/ui/vertex-logo";
@@ -38,7 +38,19 @@ export default function Home() {
         <nav className={styles.navigation} aria-label="Main navigation"><a href="#courses">Courses</a><span>My Learning</span></nav>
         <div className={styles.headerRight}>
           <span className={styles.bell} role="img" aria-label="Notifications"><Icon name="bell" size={26} /></span>
-          <Image className={styles.avatar} src="/vertex-avatar.png" alt="Learner profile" width={50} height={50} priority />
+          <Show when="signed-out">
+            <div className={styles.authActions}>
+              <SignInButton>
+                <button className={styles.signInButton} type="button">Sign in</button>
+              </SignInButton>
+              <SignUpButton>
+                <button className={styles.signUpButton} type="button">Sign up</button>
+              </SignUpButton>
+            </div>
+          </Show>
+          <Show when="signed-in">
+            <UserButton appearance={{ elements: { avatarBox: styles.avatar } }} showName={false} />
+          </Show>
         </div>
       </header>
 
